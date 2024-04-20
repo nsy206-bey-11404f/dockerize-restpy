@@ -48,6 +48,7 @@ class AppService:
     def update_task(self, request_task):
         for task in self.tasks:
             if task["id"] == int(request_task['id']):
+                request_task['id'] = int(request_task['id'])
                 task.update(request_task)
                 return self.tasks;
         return {'message': 'id de tâche non trouvé'}
